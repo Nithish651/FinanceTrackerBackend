@@ -26,7 +26,7 @@ public class UserController {
 	private final UserService userService;
 	
 
-	@GetMapping("/users")
+	@GetMapping("/users") //another test comment
 	@Operation(summary = "Get users", description = "Get all users", tags = {"User services" })
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> users =  userService.getAllUsers();
