@@ -7,5 +7,5 @@ import com.financetracker.userservice.modal.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-
+	User findByUserName(String userName);
 }
