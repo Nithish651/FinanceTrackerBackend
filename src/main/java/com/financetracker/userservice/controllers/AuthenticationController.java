@@ -28,10 +28,10 @@ public class AuthenticationController {
 	}
 	
 	
-	@PostMapping("/api/v1/auth/login")
+	@PostMapping("/users/auth/login")
 	public ResponseEntity<String> authenticate(@RequestBody LoginRequest loginRequest){
-		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUserName(), loginRequest.getPassword()));
-		var user = userRepository.findByUserName(loginRequest.getUserName());
+		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+		var user = userRepository.findByUserName(loginRequest.getUsername());
 		var token = jwtService.createToken(user.getUserName());
 		return ResponseEntity.ok(token);
 	}
